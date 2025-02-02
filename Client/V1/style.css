@@ -1,0 +1,324 @@
+/* Styles taken from: https://dribbble.com/shots/20764973-Neobrutalism-UI-How-to */
+
+@font-face {
+  font-family: "Lexend Mega";
+  src: url("./fonts/Lexend-Mega.woff2") format("woff2-variations");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("./fonts/Public-Sans.woff2") format("woff2-variations");
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+:root {
+  --body_background: #b5d2ad;
+  --background: #fff;
+  --color_primary: #2b3d4f7a;
+  --input-border: rgba(43, 61, 79, .5);
+  --btn-primary: #90ee90;
+  --btn-secondary: #ff6b6b;
+  --font_family_heading: "Lexend Mega", sans-serif;
+  --font_family_main: "Public Sans", system-ui, sans-serif;
+  --font_size-base: 1.6rem;
+  --font_size_small: 1.2rem;
+  --font_size_large: 2.4rem;
+  --accent: #bafca2;
+  --link: #f4d738;
+  --alert: #ff4911;
+}
+
+body {
+  font-family: var(--font_family_main);
+  font-size: var(--font_size-base);
+  background-color: var(--body_background);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: var(--color_primary);
+}
+
+h1,
+h2 {
+  font-family: var(--font_family_heading);
+  font-weight: bold;
+  font-size: var(--font_size_large);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: var(--font_size-base);
+}
+
+header {
+  background: var(--background);
+  padding: 2rem 3rem;
+  border-bottom: 2px solid var(--color_primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  min-width: 100vw;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  font-size: var(--font_size_small);
+  padding: 1rem 0.5rem;
+  border: 2px solid var(--color_primary);
+  border-radius: 0.4rem;
+}
+
+input:focus{
+  border: 2px solid rgba(43, 61, 79,);
+}
+
+input[type="checkbox"]:checked {
+  accent-color: var(--accent);
+}
+
+a {
+  color: var(--link);
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  font-weight: bold;
+  text-decoration-color: #2c3e50;
+}
+
+header button:hover {
+  background-color: var(--btn-secondary);
+}
+
+.todo-item button:hover {
+  background-color: var(--btn-secondary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--background);
+  padding: 2.8rem;
+  border: 2px solid var(--color_primary);
+  box-shadow: 6px 6px 0 rgba(44, 62, 80, 0.1);
+  width: 100%;
+  max-width: 500px;
+  border-radius: .4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card p {
+  text-align: center;
+  margin: 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  background: var(--background);
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--color_primary);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+button:hover {
+  background: var(--btn-primary);
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0 var(--color_primary);
+}
+
+.todo-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container button{
+  height: 4rem;
+  width: 4rem;
+}
+
+.add-todo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-todo input {
+  flex-grow: 1;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.8rem;
+  border: 2px solid var(--color_primary);
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  gap: 0.8rem;
+  border-radius: 3px;
+}
+
+.todo-item input {
+  width: 5%;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-item span {
+  font-size: var(--font_size-base);
+}
+
+.todo-item.completed {
+  background: #f5f5f5;
+  opacity: 0.8;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+}
+
+.error-message {
+  color: var(--alert);
+  margin-bottom: 0.5rem;
+  min-height: 1.2rem;
+  font-weight: bold;
+}
+
+.logout-btn {
+  color: var(--color_primary);
+  border-color: var(--secondary);
+}
+
+/* .form-group {
+  margin-bottom: 1rem;
+} */
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+input:invalid {
+  border-color: var(--alert);
+}
+
+input:focus {
+  outline: none;
+}
+
+#username-display {
+  text-transform: capitalize;
+  color: var(--accent);
+  font-family: "Lexend Mega", Impact, sans-serif;
+}
+
+/* @media (width < 480px) {
+  .card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  header {
+    display: flex;
+    padding: 1rem;
+  }
+
+  h1 {
+    flex-grow: 4;
+    text-align: left;
+    padding: .5rem;
+    font-size: var(--font_size_small);
+  }
+
+  button {
+    flex-grow: .5;
+    padding: .5rem;
+  }
+} */
+
+/* @media (480px <= width < 800px) {
+  .card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: var(--font_size_large);
+    flex-grow: 4;
+    text-align: left;
+    padding: .5rem;
+  }
+
+  button {
+    padding: .5rem;
+  }
+} */
+
+/* @media (width >= 1024px) {
+  .card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  header {
+    display: flex;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: var(--font_size_base);
+    flex-grow: 4;
+    text-align: left;
+    padding: .5rem;
+  }
+
+  button {
+    flex-grow: .5;
+    padding: .5rem;
+  }
+} */

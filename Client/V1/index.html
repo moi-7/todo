@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo Todo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Login Section -->
+    <div class="container" id="login-container">
+      <div class="card">
+        <h2>Login</h2>
+        <div id="login-error" class="error-message"></div>
+        <input
+          type="text"
+          id="login-username"
+          placeholder="Username or Email"
+        />
+        <input type="password" id="login-password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p>
+          Don't have an account?
+          <a href="#" onclick="showRegister()">Register</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Register Section -->
+    <div class="container hidden" id="register-container">
+      <div class="card">
+        <h2>Register</h2>
+        <div id="register-error" class="error-message"></div>
+
+        <div class="form-group">
+          <label for="register-username">Username</label>
+          <input
+            type="text"
+            id="register-username"
+            placeholder="Enter username"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <input
+            type="email"
+            id="register-email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input
+            type="password"
+            id="register-password"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="Re-enter password"
+            required
+          />
+        </div>
+
+        <button onclick="register()">Create Account</button>
+        <p class="text-center">
+          Already have an account? <a href="#" onclick="showLogin()">Login</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Todo Dashboard -->
+    <div class="hidden" id="dashboard">
+      <header>
+        <h1>Welcome, <span id="username-display"></span></h1>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+      </header>
+
+      <div class="todo-container">
+        <div class="card">
+          <div class="add-todo">
+            <input type="text" id="new-todo" placeholder="Add new task..." />
+            <button onclick="addTodo()">+</button>
+          </div>
+          <div id="todos-list"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
